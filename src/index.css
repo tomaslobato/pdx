@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+.answer h1 {
+  font-size: var(--text-3xl);
+}
+
+.answer h2 {
+  font-size: var(--text-2xl)
+}
+
+.answer h3 {
+  font-size: var(--text-xl);
+}
+
+.answer h4 {
+  font-size: var(--text-lg)
+}
+
+.answer p {
+  margin-top: 12px
+}
+
+.answer li {
+  margin-top: 2px
+}
+
+.answer ul {
+  margin-top: 16px;
+  list-style: disc;
+  padding-left: 16px
+}
