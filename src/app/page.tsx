@@ -1,28 +1,19 @@
 "use client"
 
 import { deleteFile, FileData, getFiles, uploadFile } from "@/utils/db"
-import { InfoIcon, Trash2Icon, UploadIcon } from "lucide-react"
+import { Trash2Icon, UploadIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
-import Cookies from "js-cookie"
+import { useState } from "react"
 
 export default function Home() {
   const [fileList, setFileList] = useState<FileData[]>([])
-  const apiKeyInputRef = useRef<HTMLInputElement>(null)
 
   async function fetchFiles() {
     const files = (await getFiles()) as FileData[]
     setFileList(files)
   }
 
-  useEffect(() => {
-    fetchFiles()
-    const savedApiKey = Cookies.get("api-key")
-    if (savedApiKey && apiKeyInputRef.current) {
-      apiKeyInputRef.current.value = savedApiKey
-    }
-  }, [])
 
   const handleFileUpload = async (ev: React.ChangeEvent<HTMLInputElement>) => {
     if (ev.target.files && ev.target.files[0]) {
@@ -48,14 +39,6 @@ export default function Home() {
       await fetchFiles()
     } catch (error) {
       console.error("Error deleting file:", error)
-    }
-  }
-
-  const handleSaveKey = () => {
-    const apiKey = apiKeyInputRef.current?.value
-    if (apiKey) {
-      Cookies.set("api-key", apiKey)
-      alert("API key saved successfully!")
     }
   }
 

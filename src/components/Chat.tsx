@@ -19,7 +19,7 @@ export default function Chat({ pdfText, name }: { pdfText: string, name: string 
     }
 
     initialQuestion()
-  }, [])
+  })
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })

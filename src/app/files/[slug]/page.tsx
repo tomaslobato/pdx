@@ -7,7 +7,6 @@ import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { pdfjs } from "react-pdf"
 import Chat from "@/components/Chat"
-import Cookies from "js-cookie"
 
 if (typeof window !== "undefined" && !pdfjs.GlobalWorkerOptions.workerSrc) {
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`
