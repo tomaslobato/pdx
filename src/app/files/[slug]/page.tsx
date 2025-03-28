@@ -100,8 +100,8 @@ export default function Page() {
     )
 
   return (
-    <div className="flex w-screen box-border md:h-auto flex-col md:flex-row overflow-auto">
-      <div className="hidden md:block md:h-screen bg-zinc-800 w-full md:w-1/2 overflow-y-auto">
+    <div className="flex md:h-screen flex-col md:flex-row">
+      <div className="hidden md:block bg-zinc-800 w-full md:w-1/2 overflow-y-auto">
         <Doc pdfUrl={pdfUrl} />
       </div>
       {pdfText && <Chat pdfText={pdfText} name={file.name} />}
